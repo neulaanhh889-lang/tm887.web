@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cổng thành viên độc lập</title>
+<style>
+:root{--bg:#090f19;--panel:#151e2b;--panel2:#1c2939;--gold:#e8bd58;--gold2:#b98b32;--muted:#aab5c3;--line:#344255;--white:#f5f6f8}
+*{box-sizing:border-box}body{margin:0;background:#0b111b;color:var(--white);font:14px/1.5 Arial,Helvetica,sans-serif}
+.notice{background:#fff1cf;color:#62470b;text-align:center;padding:7px 12px;font-size:12px;font-weight:700}
+.topline{height:5px;background:linear-gradient(90deg,#8f6825,#f2d27e,#8f6825)}
+.wrap{max-width:1160px;margin:auto;padding:0 16px}
+header{background:#101925;border-bottom:1px solid #293646;box-shadow:0 5px 20px #0004}
+.head{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:11px}.mark{width:42px;height:42px;border:2px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-weight:900;font-size:21px;transform:rotate(-4deg)}
+.brandname{font-size:19px;font-weight:900;letter-spacing:1px;color:#f2d17b}.brandname small{display:block;font-size:9px;letter-spacing:2px;color:#9daaba;font-weight:600}
+.headright{display:flex;align-items:center;gap:10px}.headright span{font-size:12px;color:var(--muted)}
+.btn{border:0;border-radius:6px;padding:10px 17px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
+.gold{background:linear-gradient(#f5d989,#c89b43);color:#2b210e;box-shadow:inset 0 1px #fff8}.outline{background:transparent;border:1px solid #647184;color:#e8edf3}
+nav{background:#172333;border-top:1px solid #293747}.nav{display:flex;align-items:center;gap:0;overflow:auto;white-space:nowrap}.nav a{color:#d7dee7;text-decoration:none;padding:13px 18px;font-size:12px;font-weight:700;border-right:1px solid #2c3a4c}.nav a:first-child{color:var(--gold)}
+main{padding:24px 0 50px}
+.hero{display:grid;grid-template-columns:1.35fr .65fr;gap:16px}
+.banner{min-height:260px;border-radius:12px;overflow:hidden;position:relative;padding:32px;background:radial-gradient(ellipse at 80% 35%,#52617a 0,#26384c 30%,#121d2b 72%);border:1px solid #425064}
+.banner:after{content:"";position:absolute;right:5%;top:15%;width:210px;height:210px;border-radius:50%;border:1px solid #d9b45c66;box-shadow:0 0 0 22px #d9b45c0c,0 0 0 48px #d9b45c08}
+.kicker{color:var(--gold);font-size:11px;letter-spacing:3px;font-weight:900}.banner h1{font-size:clamp(26px,4vw,42px);line-height:1.12;max-width:510px;margin:12px 0}.banner p{max-width:470px;color:#c1cad5;margin:0 0 22px}.banner .btn{position:relative;z-index:1}
+.sidebox{border-radius:12px;border:1px solid #39485c;background:linear-gradient(145deg,#1c2b3e,#111b29);padding:22px;display:flex;flex-direction:column;justify-content:center}
+.sidebox .seal{width:48px;height:48px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:22px;margin-bottom:13px}
+.sidebox h2{font-size:19px;margin:0 0 8px}.sidebox p{color:var(--muted);font-size:13px;margin:0 0 15px}
+.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:25px 0 13px}.sectionhead h2{font-size:17px;margin:0}.sectionhead span{font-size:11px;color:var(--gold);letter-spacing:1px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tile{background:linear-gradient(145deg,#1b293a,#121c29);border:1px solid #334255;border-radius:10px;padding:18px;min-height:116px}.tile b{display:block;margin:8px 0 3px}.tile p{margin:0;color:var(--muted);font-size:12px}.ico{font-size:22px;color:var(--gold)}
+.lower{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.info{background:#121d2a;border:1px solid #2d3b4e;border-radius:10px;padding:18px}.info h3{margin:0 0 8px;font-size:15px}.info p{margin:0;color:var(--muted);font-size:13px}
+.authwrap{margin-top:28px;display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;align-items:stretch}
+.authintro{border-radius:12px;padding:25px;background:linear-gradient(145deg,#25374d,#121d2b);border:1px solid #3a4b60}.authintro h2{font-size:22px;margin:0 0 10px}.authintro p{color:#bac5d2;font-size:13px}.authintro ul{padding-left:18px;color:#d5dce5;font-size:13px;line-height:2}
+.panel{background:#151f2d;border:1px solid #3a485b;border-radius:12px;padding:23px;box-shadow:0 15px 40px #0004}
+.tabs{display:flex;gap:8px;margin-bottom:18px}.tabs button{flex:1;border:1px solid #46566b;border-radius:6px;background:#101925;color:#dce3eb;padding:11px;font-weight:800;cursor:pointer}.tabs button.active{background:linear-gradient(#f4d687,#c99a42);border-color:#e4c36e;color:#2a200e}
+h2{margin:0 0 6px}.sub{color:var(--muted);font-size:12px;margin:0 0 16px}
+label{display:block;margin:12px 0 6px;color:#d7dfe8;font-size:12px;font-weight:700}
+input{width:100%;background:#0b1420;border:1px solid #3b4a5e;color:#fff;border-radius:6px;padding:12px 13px;outline:none}input:focus{border-color:var(--gold)}
+.submit{width:100%;margin-top:18px}.msg{min-height:20px;margin-top:10px;color:#f0ce7b;font-size:12px}.hidden{display:none!important}
+.member{background:#0d1724;border:1px solid #35465a;border-radius:8px;padding:16px;margin-top:14px;color:#dce4ed}
+footer{border-top:1px solid #2d3a4b;background:#0e1722;color:#8e9bab;text-align:center;padding:22px 12px;font-size:11px}
+@media(max-width:780px){.head{height:66px}.headright span{display:none}.hero,.authwrap{grid-template-columns:1fr}.banner{min-height:230px;padding:24px}.sidebox{min-height:165px}.tiles{grid-template-columns:repeat(2,1fr)}.lower{grid-template-columns:1fr}.nav a{padding:12px 14px}}
+</style>
+</head>
+<body>
+<div class="notice">WEBSITE ĐỘC LẬP · Không phải trang chính thức hoặc đại diện cho TN88 hay bất kỳ bên thứ ba nào.</div><div class="topline"></div>
+<header><div class="wrap head">
+<div class="brand"><div class="mark">◆</div><div class="brandname">MEMBER PORTAL<small>HỆ THỐNG THÀNH VIÊN RIÊNG</small></div></div>
+<div class="headright"><span>Tài khoản độc lập của website này</span><a class="btn outline" href="#account">Tài khoản</a><a class="btn gold" href="#account">Tham gia</a></div>
+</div><nav><div class="wrap nav"><a href="#home">TRANG CHỦ</a><a href="#features">GIỚI THIỆU</a><a href="#guide">HƯỚNG DẪN</a><a href="#account">ĐĂNG NHẬP / ĐĂNG KÝ</a><a href="#support">HỖ TRỢ</a></div></nav></header>
+<main class="wrap" id="home">
+<section class="hero">
+<div class="banner"><div class="kicker">KHÔNG GIAN THÀNH VIÊN</div><h1>Một tài khoản riêng,<br>trải nghiệm gọn gàng</h1><p>Đăng ký tài khoản của website này để truy cập khu vực thành viên và quản lý thông tin cá nhân của bạn.</p><a class="btn gold" href="#account">TẠO TÀI KHOẢN NGAY</a></div>
+<aside class="sidebox"><div class="seal">✦</div><h2>Chào mừng thành viên</h2><p>Tài khoản được tạo và quản lý độc lập trên hệ thống này. Không dùng chung thông tin đăng nhập với website khác.</p><a class="btn outline" href="#account">Đến khu vực tài khoản</a></aside>
+</section>
+<div class="sectionhead" id="features"><h2>TIỆN ÍCH THÀNH VIÊN</h2><span>MEMBER SERVICES</span></div>
+<section class="tiles"><article class="tile"><div class="ico">♙</div><b>Tài khoản cá nhân</b><p>Đăng ký và đăng nhập riêng.</p></article><article class="tile"><div class="ico">▤</div><b>Khu vực thành viên</b><p>Truy cập sau khi đăng nhập.</p></article><article class="tile"><div class="ico">◇</div><b>Quản lý bảo mật</b><p>Mật khẩu được băm khi lưu.</p></article><article class="tile"><div class="ico">☏</div><b>Hỗ trợ</b><p>Thông tin hỗ trợ của website.</p></article></section>
+<section class="lower" id="guide"><div class="info"><h3>Hướng dẫn bắt đầu</h3><p>Chọn “Đăng ký” để tạo tài khoản mới. Sau đó đăng nhập bằng tên tài khoản và mật khẩu vừa tạo.</p></div><div class="info" id="support"><h3>Lưu ý an toàn</h3><p>Chỉ sử dụng thông tin đăng nhập riêng cho website này. Không nhập mật khẩu của dịch vụ hoặc nền tảng khác.</p></div></section>
+<section class="authwrap" id="account">
+<div class="authintro"><div class="kicker">MEMBER ACCESS</div><h2>Khu vực tài khoản</h2><p>Đăng nhập hoặc tạo tài khoản mới để tiếp tục.</p><ul><li>Tài khoản riêng của website</li><li>Mật khẩu được mã hóa dạng băm</li><li>Có thể đăng xuất bất cứ lúc nào</li></ul></div>
+<div class="panel"><div id="auth">
+<div class="tabs"><button id="tabLogin" class="active" type="button">ĐĂNG NHẬP</button><button id="tabRegister" type="button">ĐĂNG KÝ</button></div>
+<form id="loginForm"><h2>Đăng nhập</h2><p class="sub">Nhập thông tin tài khoản trên website này.</p><label for="loginUser">Tên tài khoản</label><input id="loginUser" autocomplete="username" required minlength="3" maxlength="32"><label for="loginPass">Mật khẩu</label><input id="loginPass" type="password" autocomplete="current-password" required minlength="8"><button class="btn gold submit">ĐĂNG NHẬP</button><div class="msg" id="loginMsg" role="status"></div></form>
+<form id="registerForm" class="hidden"><h2>Tạo tài khoản mới</h2><p class="sub">Thông tin chỉ dùng cho tài khoản tại website này.</p><label for="regUser">Tên tài khoản</label><input id="regUser" autocomplete="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_]+" title="Dùng chữ không dấu, số hoặc dấu gạch dưới"><label for="regPhone">Số điện thoại (không bắt buộc)</label><input id="regPhone" type="tel" autocomplete="tel" maxlength="20"><label for="regPass">Mật khẩu (ít nhất 8 ký tự)</label><input id="regPass" type="password" autocomplete="new-password" required minlength="8"><label for="regConfirm">Nhập lại mật khẩu</label><input id="regConfirm" type="password" autocomplete="new-password" required minlength="8"><button class="btn gold submit">TẠO TÀI KHOẢN</button><div class="msg" id="registerMsg" role="status"></div></form></div>
+<section id="member" class="hidden"><h2>Đăng nhập thành công</h2><p class="sub">Chào mừng bạn đến khu vực thành viên.</p><div class="member">Tên tài khoản: <strong id="memberName"></strong><br><small>Tài khoản riêng của website này.</small></div><button id="logout" class="btn gold submit">ĐĂNG XUẤT</button></section>
+</div></section>
+</main><footer>© 2026 MEMBER PORTAL · WEBSITE ĐỘC LẬP · Không liên kết với nền tảng bên thứ ba.</footer>
+<script>
+const $=id=>document.getElementById(id);
+function tab(w){$('loginForm').classList.toggle('hidden',w!=='login');$('registerForm').classList.toggle('hidden',w!=='register');$('tabLogin').classList.toggle('active',w==='login');$('tabRegister').classList.toggle('active',w==='register')}
+$('tabLogin').onclick=()=>tab('login');$('tabRegister').onclick=()=>tab('register');
+async function api(path,data,method='POST'){const res=await fetch(path,{method,headers:{'Content-Type':'application/json'},body:method==='GET'?undefined:JSON.stringify(data||{})});let out={};try{out=await res.json()}catch{}if(!res.ok)throw new Error(out.error||'Có lỗi xảy ra. Vui lòng thử lại.');return out}
+$('registerForm').addEventListener('submit',async e=>{e.preventDefault();$('registerMsg').textContent='';const username=$('regUser').value.trim(),phone=$('regPhone').value.trim(),password=$('regPass').value;if(password!==$('regConfirm').value){$('registerMsg').textContent='Mật khẩu nhập lại chưa khớp.';return}try{await api('/api/register',{username,phone,password});$('registerMsg').textContent='Tạo tài khoản thành công. Mời bạn đăng nhập.';$('loginUser').value=username;$('registerForm').reset();tab('login')}catch(err){$('registerMsg').textContent=err.message}});
+$('loginForm').addEventListener('submit',async e=>{e.preventDefault();$('loginMsg').textContent='';try{const d=await api('/api/login',{username:$('loginUser').value.trim(),password:$('loginPass').value});showMember(d.username)}catch(err){$('loginMsg').textContent=err.message}});
+function showMember(n){$('auth').classList.add('hidden');$('member').classList.remove('hidden');$('memberName').textContent=n}
+$('logout').onclick=async()=>{try{await api('/api/logout',{})}finally{$('member').classList.add('hidden');$('auth').classList.remove('hidden');$('loginPass').value='';tab('login')}};
+(async()=>{try{const d=await api('/api/me',{},'GET');if(d.username)showMember(d.username)}catch{}})();
+</script>
+</body></html>
