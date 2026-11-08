@@ -75,4 +75,4 @@ function showMember(n){$('auth').classList.add('hidden');$('member').classList.r
 $('logout').onclick=async()=>{try{await api('/api/logout',{})}finally{$('member').classList.add('hidden');$('auth').classList.remove('hidden');$('loginPass').value='';tab('login')}};
 (async()=>{try{const d=await api('/api/me',{},'GET');if(d.username)showMember(d.username)}catch{}})();
 </script>
-</body></html>
+</body></html>  
